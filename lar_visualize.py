@@ -92,7 +92,7 @@ for counter, label in enumerate(labels):
         cmap = 'plasma'
         im = ax.imshow(data[counter][i], cmap=pylab.get_cmap(cmap),
                        interpolation='nearest', vmin=minv, vmax=3000)
-        pylab.show()
+        #pylab.show()
         cbar = pylab.colorbar(im, fraction=0.04)
         cbar.set_label(colorbar_tile, size=9)
         cbar.ax.tick_params(labelsize=6)
