@@ -25,7 +25,7 @@ if '-h' in sys.argv or '--help' in sys.argv:
     print(__doc__)
     sys.exit(1)
 
-filename = './params_discriminator_epoch_049.hdf5'
+filename = './photon_1-1462232439.h5'
 if len(sys.argv) > 1:
     filename = sys.argv[1]
 if len(sys.argv) > 2:
@@ -80,7 +80,7 @@ for counter, label in enumerate(labels):
     targ = labels[counter]
     pstring = '{}'.format(targ)
     print(pstring)
-    fig = pylab.figure(figsize=(9, 3))
+    fig = pylab.figure(figsize=(12, 8))
     gs = pylab.GridSpec(1, 2)
     for i in range(2):
         ax = pylab.subplot(gs[i])
@@ -89,7 +89,7 @@ for counter, label in enumerate(labels):
         ax.yaxis.set_major_locator(pylab.NullLocator())
 
         minv = -500
-        cmap = 'plasma'
+        cmap = 'inferno'
         im = ax.imshow(data[counter][i], cmap=pylab.get_cmap(cmap),
                        interpolation='nearest', vmin=minv, vmax=3000)
         #pylab.show()
