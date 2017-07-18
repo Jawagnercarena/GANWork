@@ -95,7 +95,7 @@ for event_n in range(data.shape[0]):
 
 colorbar_tile = 'scaled energy'
 
-def plot_event(img, minv= -500, maxv=1000):
+def plot_event(img, minv= 0, maxv=1000):
     fig = plt.figure(figsize=(12, 8))
     gs = plt.GridSpec(1, 2)
     for i in range(2):
