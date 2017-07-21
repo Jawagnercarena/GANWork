@@ -83,7 +83,7 @@ shp = list(data.shape)
 shp[-1] = shp[-1] / 4   # downsample by 4
 simpledata=np.zeros(shp)
 
-for event_n in range(data.shape[0]):
+for event_n in range(data.shape[0]): #take a mean of data and produce a new array downsampling it by 4
     y=0
     for x in my_range(0, 4096, 4):
         if x == 0:
@@ -92,6 +92,9 @@ for event_n in range(data.shape[0]):
             print '  mean(data) slice shape =', np.nanmean(data[event_n,:,:,x:(x+4)], axis=2).shape
         simpledata[event_n,:,:,y:(y+1)] = np.nanmean(data[event_n,:,:,x:(x+4)], axis=2).reshape(2,240,1)
         y+=1
+
+cropdata=simpledata.copy() #Crop the useless data points from image
+cropdata= cropdata[:,:,:,:650]
 
 colorbar_tile = 'scaled energy'
 
@@ -121,7 +124,7 @@ for counter, label in enumerate(labels):
     pstring = '{}'.format(targ)
     print(pstring)
 
-    plot_event(simpledata[counter])
+    plot_event(cropdata[counter])
 
     figname = 'evt_%s_%d_%f.pdf' % \
         (filename, counter, labels[counter])
